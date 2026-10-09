@@ -1,0 +1,5 @@
+ Result after initiation:
+   -2     4    -2    -2
+    0    -8    -2    -2
+  -10    -1    -4    -8
+    2     9     5   -10
