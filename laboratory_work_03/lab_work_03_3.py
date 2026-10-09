@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from math import log
 
 print("Введите Xbeg, Xend, Dx и Eps")

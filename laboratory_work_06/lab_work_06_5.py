@@ -1,15 +1,14 @@
-# -*- coding: cp1251 -*-
-# Вариант 23
+# Р’Р°СЂРёР°РЅС‚ 23
 import numpy as np
 
 
 def create_matrix(size, low=-10, high=10):
-    """Инициализация матрицы случайными целыми числами."""
+    """РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РјР°С‚СЂРёС†С‹ СЃР»СѓС‡Р°Р№РЅС‹РјРё С†РµР»С‹РјРё С‡РёСЃР»Р°РјРё."""
     return np.random.randint(low, high + 1, size=(size, size))
 
 
 def write_matrix(matr, title, fo):
-    """Запись матрицы в выходной файл через f-строки."""
+    """Р—Р°РїРёСЃСЊ РјР°С‚СЂРёС†С‹ РІ РІС‹С…РѕРґРЅРѕР№ С„Р°Р№Р» С‡РµСЂРµР· f-СЃС‚СЂРѕРєРё."""
     fo.write(f"{title}\n")
     rows, cols = matr.shape
     for i in range(rows):
@@ -20,12 +19,12 @@ def write_matrix(matr, title, fo):
 
 
 def calculate_block_sums(matr, n, fo):
-    """Вычисление и запись сумм элементов блоков матрицы в файл."""
-    # Разбиение матрицы на блоки размером n x n
-    b1 = matr[0:n, 0:n]  # Левый верхний
-    b2 = matr[0:n, n:2 * n]  # Правый верхний
-    b3 = matr[n:2 * n, 0:n]  # Левый нижний
-    b4 = matr[n:2 * n, n:2 * n]  # Правый нижний
+    """Р’С‹С‡РёСЃР»РµРЅРёРµ Рё Р·Р°РїРёСЃСЊ СЃСѓРјРј СЌР»РµРјРµРЅС‚РѕРІ Р±Р»РѕРєРѕРІ РјР°С‚СЂРёС†С‹ РІ С„Р°Р№Р»."""
+    # Р Р°Р·Р±РёРµРЅРёРµ РјР°С‚СЂРёС†С‹ РЅР° Р±Р»РѕРєРё СЂР°Р·РјРµСЂРѕРј n x n
+    b1 = matr[0:n, 0:n]  # Р›РµРІС‹Р№ РІРµСЂС…РЅРёР№
+    b2 = matr[0:n, n:2 * n]  # РџСЂР°РІС‹Р№ РІРµСЂС…РЅРёР№
+    b3 = matr[n:2 * n, 0:n]  # Р›РµРІС‹Р№ РЅРёР¶РЅРёР№
+    b4 = matr[n:2 * n, n:2 * n]  # РџСЂР°РІС‹Р№ РЅРёР¶РЅРёР№
 
     sums = []
     for b_idx, block in enumerate([b1, b2, b3, b4], start=1):
@@ -34,13 +33,13 @@ def calculate_block_sums(matr, n, fo):
             for j in range(n):
                 total += block[i, j]
         sums.append(total)
-        fo.write(f"Сумма элементов блока {b_idx}: {total}\n")
+        fo.write(f"РЎСѓРјРјР° СЌР»РµРјРµРЅС‚РѕРІ Р±Р»РѕРєР° {b_idx}: {total}\n")
     fo.write("\n")
     return sums
 
 
 def rearrange_blocks(matr, n):
-    """Циклическая перестановка блоков матрицы."""
+    """Р¦РёРєР»РёС‡РµСЃРєР°СЏ РїРµСЂРµСЃС‚Р°РЅРѕРІРєР° Р±Р»РѕРєРѕРІ РјР°С‚СЂРёС†С‹."""
     new_matr = np.zeros((2 * n, 2 * n), dtype=int)
 
     for i in range(n):
@@ -53,7 +52,7 @@ def rearrange_blocks(matr, n):
 
 
 def main():
-    n = int(input("Введите параметр n (размер матрицы будет 2n x 2n): "))
+    n = int(input("Р’РІРµРґРёС‚Рµ РїР°СЂР°РјРµС‚СЂ n (СЂР°Р·РјРµСЂ РјР°С‚СЂРёС†С‹ Р±СѓРґРµС‚ 2n x 2n): "))
     size = 2 * n
 
     tst_matr = create_matrix(size)
@@ -73,13 +72,13 @@ def main():
 
     fo = open("lab_work_06_5_out.txt", "wt", encoding="cp1251")
 
-    write_matrix(matrix, f"Исходная матрица ({rows}x{cols}):", fo)
-    fo.write("--- Суммы блоков ---\n")
+    write_matrix(matrix, f"РСЃС…РѕРґРЅР°СЏ РјР°С‚СЂРёС†Р° ({rows}x{cols}):", fo)
+    fo.write("--- РЎСѓРјРјС‹ Р±Р»РѕРєРѕРІ ---\n")
     calculate_block_sums(matrix, n_matr, fo)
-    write_matrix(result_matrix, "После перестановки блоков:", fo)
+    write_matrix(result_matrix, "РџРѕСЃР»Рµ РїРµСЂРµСЃС‚Р°РЅРѕРІРєРё Р±Р»РѕРєРѕРІ:", fo)
 
     fo.close()
-    print("Матрица сгенерирована в lab_work_06_5_in.txt, результат записан в lab_work_06_5_out.txt")
+    print("РњР°С‚СЂРёС†Р° СЃРіРµРЅРµСЂРёСЂРѕРІР°РЅР° РІ lab_work_06_5_in.txt, СЂРµР·СѓР»СЊС‚Р°С‚ Р·Р°РїРёСЃР°РЅ РІ lab_work_06_5_out.txt")
 
 
 if __name__ == "__main__":
