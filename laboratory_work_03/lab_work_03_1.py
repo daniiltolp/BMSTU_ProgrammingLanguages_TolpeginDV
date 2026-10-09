@@ -1,16 +1,16 @@
-# -*- coding: cp1251 -*-
+
 from math import tan
 
 
 def f2t(x, x1, y1, x2, y2):
-    '''Задание линейной функции по двум точкам '''
+    '''Г‡Г Г¤Г Г­ГЁГҐ Г«ГЁГ­ГҐГ©Г­Г®Г© ГґГіГ­ГЄГ¶ГЁГЁ ГЇГ® Г¤ГўГіГ¬ ГІГ®Г·ГЄГ Г¬ '''
     k = (y2 - y1) / (x2 - x1)
     b = y1 - k * x1
     return k * x + b
 
 
 def f(x):
-    '''Прошлая функуия'''
+    '''ГЏГ°Г®ГёГ«Г Гї ГґГіГ­ГЄГіГЁГї'''
     if -5 <= x <= -2:
         return f2t(x, -5, -1, -2, 0)
     elif -2 < x <= 2:
@@ -22,10 +22,10 @@ def f(x):
 while True:
     try:
         output = ""
-        print("Функция определена на отрезке [-5, 5]")
-        Xbeg = float(input("Введите Xbeg="))
-        Xend = float(input("Введите Xend="))
-        dx = float(input("Введите dx="))
+        print("Г”ГіГ­ГЄГ¶ГЁГї Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­Г  Г­Г  Г®ГІГ°ГҐГ§ГЄГҐ [-5, 5]")
+        Xbeg = float(input("Г‚ГўГҐГ¤ГЁГІГҐ Xbeg="))
+        Xend = float(input("Г‚ГўГҐГ¤ГЁГІГҐ Xend="))
+        dx = float(input("Г‚ГўГҐГ¤ГЁГІГҐ dx="))
         if dx == 0: raise ValueError
 
         output += '\n'
@@ -40,8 +40,8 @@ while True:
         print(output)
         with open("03_1.txt", "w", encoding="utf-8") as f:
             f.write(output)
-            print("Данный записаны в файл 03_1.txt")
+            print("Г„Г Г­Г­Г»Г© Г§Г ГЇГЁГ±Г Г­Г» Гў ГґГ Г©Г« 03_1.txt")
         break
     except:
-        print("Ошибка! Попробуйте ещё раз!")
+        print("ГЋГёГЁГЎГЄГ ! ГЏГ®ГЇГ°Г®ГЎГіГ©ГІГҐ ГҐГ№Вё Г°Г Г§!")
         continue
